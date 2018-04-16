@@ -3,6 +3,9 @@ package com.bean;
 import com.annotation.Column;
 import com.annotation.Table;
 
+import javax.xml.crypto.Data;
+import java.util.Date;
+
 @Table(tableName = "t_user")
 public class UserBean {
 
@@ -19,9 +22,9 @@ public class UserBean {
     @Column(type = "varchar(2)" ,field = "sex")
     private Integer male;     //性别 0男 1女 3保密
     @Column(type = "datetime" ,field = "create_time")
-    private String createTime;//创建时间
+    private Date createTime;//创建时间
     @Column(type = "datetime" ,field = "uodate_time")
-    private String updateTime;//最后更新时间
+    private Date updateTime;//最后更新时间
     @Column(type = "int(1)" ,field = "is_delete")
     private Integer isDelete; // 删除状态0未删除1删除
     @Column(type = "varchar(200)" ,field = "address")
@@ -77,19 +80,19 @@ public class UserBean {
         this.male = male;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public String getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(String updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
@@ -115,5 +118,22 @@ public class UserBean {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    @Override
+    public String toString() {
+        return "UserBean{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", headerPic='" + headerPic + '\'' +
+                ", email='" + email + '\'' +
+                ", male=" + male +
+                ", createTime='" + createTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                ", isDelete=" + isDelete +
+                ", address='" + address + '\'' +
+                ", telephone='" + telephone + '\'' +
+                '}';
     }
 }
