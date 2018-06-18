@@ -16,63 +16,8 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <title>Title</title>
 
-    <!-- 公共库 -->
-    <%@include file="common/taglib.jsp" %>
     <style>
-        *{
-            padding: 0 ;
-            margin: 0 ;
-        }
-        .header {
-            height: 72px ;
-            background: #458fce ;
-        }
-        .header .logo {
-            color: #fff ;
-            line-height: 72px ;
-            font-size: 30px ;
-            margin-left: 20px ;
-            display:inline-block ;
-            font-weight:500 ;
-            float: left;
-        }
-        ul li {
-            list-style: none ;
-        }
-        .header ul li {
-            float: left ;
-        }
-        .header ul li.first {
-            margin-left: 30px ;
-        }
 
-        .header ul li {
-            float: left ;
-            color: #fff ;
-            display: inline-block ;
-            width: 112px ;
-            height: 72px ;
-            text-align: center ;
-            line-height:72px ;
-            cursor: pointer ;
-        }
-        a {
-            color: #fff ;
-            text-decoration: none ;
-        }
-        .header ul li:hover {
-            background:#74b0e2 ;
-        }
-        .header .login {
-            float: right ;
-            color: #fff ;
-            line-height: 72px ;
-            margin-right: 20px ;
-        }
-        .header ul li.first {
-            margin-left: 30px ;
-            background:#74b0e2 ;
-        }
         .category {
             margin-top: 10px;
             margin-bottom:20px;
@@ -126,12 +71,19 @@
             margin-top: 22px;
         }
     </style>
+    <script type="text/javascript">
+        function detail(id) {
+            var a = document.createElement('a');
+            a.href = "detail.jsp?id=" + id;
+            console.log(a)
+            a.target = '_new';
+            a.click();
+        }
+    </script>
 </head>
 <body>
     <!-- 头部页面 -->
     <%@include file="common/header.jsp" %>
-
-
 
     <div class='h600' style='border:1px solid #ccc'>
 
@@ -151,7 +103,7 @@
                     %>
 
                     <c:forEach items="${allArticle}" var="article">
-                        <li class='item'>
+                        <li class='item' onclick="detail('${article.id}');">
                             <div class='item-banner'>
                                 <div class='item-header'>${article.header}</div>
                                 <div class='item-name'>${article.name}</div>

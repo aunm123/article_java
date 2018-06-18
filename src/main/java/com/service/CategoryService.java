@@ -22,4 +22,11 @@ public class CategoryService {
 
         return categoryBeans;
     }
+
+    public static CategoryBean getCategoryById(String id){
+        String sql = "select * from t_category where id = ?";
+        CategoryBean categoryBean = DataBaseUtils.queryForBean(CategoryBean.class,sql,id);
+
+        return categoryBean;
+    }
 }

@@ -21,4 +21,10 @@ public class ArticleService {
 
         return articleBeans;
     }
+    public static ArticleBean getArticleByid(String id){
+        String sql = "select * from t_article where id = ?";
+        ArticleBean articleBean = DataBaseUtils.queryForBean(ArticleBean.class,sql,id);
+
+        return  articleBean;
+    }
 }
